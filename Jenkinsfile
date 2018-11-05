@@ -2,28 +2,38 @@ pipeline {
   agent any
 
   environment {
-    // FOO will be available in entire pipeline
-    FOO = "PIPELINE_YOYO"
+    product_flavour = "qa"
+    version_code = "1"
+    version_name = "1.0"
+    build_type = "release"
   }
 
   stages {
     stage("build") {
         steps {
-            
+          sh 'echo "##############################"'
+            sh 'echo "Build started..."'
+            sh 'echo "Build params- $product_flavour, $version_code, $version_name, $build_type"'
+            chmod +x build.sh
+            ./jenkins_build.sh "$product_flavour" "$version_code" "$version_name" "$build_type"
         }
     }
-    stage("local") {
+    
+    stage("test") {
       environment {
-        // BAR will only be available in this stage
-        BAR = "STAGE_HUHU"
+        artifacts = "app/artifacts"
       }
       steps {
-        sh 'echo "FOO is $FOO and BAR is $BAR"'
+        sh 'echo "##############################"'
+        sh 'echo "App build created and this stage will test build existed in $artifacts"'
       }
     }
-    stage("global") {
+    
+    stage("deploy") {
       steps {
-        sh 'echo "FOO is $FOO and BAR is $BAR"'
+        sh 'echo "##############################"'
+        sh 'echo "Now its time to deploy build over Hockey app."'
+        sh 'echo "!!!!!!!!Pipeline process done!!!!!!!!"'
       }
     }
   }
