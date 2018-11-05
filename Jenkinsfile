@@ -33,7 +33,7 @@ pipeline {
       steps {
         sh 'echo "##############################"'
         sh 'echo "Now its time to deploy build over Hockey app."'
-        hockeyApp applications: [[apiToken: 'd56b35a261c04c3982a17ed9086822c8', downloadAllowed: true, filePath: 'artifacts/', mandatory: true, notifyTeam: true, releaseNotesMethod: none(), uploadMethod: appCreation(false)]], debugMode: false, failGracefully: false
+        [hockeyApp, applications: [[apiToken: 'd56b35a261c04c3982a17ed9086822c8', downloadAllowed: true, filePath: 'artifacts/', mandatory: true, notifyTeam: true, releaseNotesMethod: none(), uploadMethod: appCreation(false)]], debugMode: false, failGracefully: false]
         sh 'echo "!!!!!!!!Pipeline process done!!!!!!!!"'
       }
     }
