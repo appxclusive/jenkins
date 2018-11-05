@@ -8,7 +8,7 @@ android {
         targetSdkVersion 28
         versionCode project.versionCode.toInteger()
         versionName project.versionName
-        archivesBaseName = "SDD-v" + versionName
+        archivesBaseName = "jenkins-v" + versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         flavorDimensions "environment"
     }
@@ -29,10 +29,10 @@ android {
 
     signingConfigs {
         config {
-            keyAlias 'smb-apps'
-            keyPassword 'smbapps'
+            keyAlias 'jenkins'
+            keyPassword 'jenkins'
             storeFile file(project.keyStore)
-            storePassword 'smbapps'
+            storePassword 'jenkins'
         }
     }
 
