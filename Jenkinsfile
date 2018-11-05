@@ -14,8 +14,8 @@ pipeline {
           sh 'echo "##############################"'
             sh 'echo "Build started..."'
             sh 'echo "Build params- $product_flavour, $version_code, $version_name, $build_type"'
-            chmod +x jenkins_build.sh
-            ./jenkins_build.sh "$product_flavour" "$version_code" "$version_name" "$build_type"
+            sh chmod +x jenkins_build.sh
+            sh jenkins_build.sh "$product_flavour" "$version_code" "$version_name" "$build_type"
         }
     }
     
