@@ -49,6 +49,10 @@ capitalize()
 	value=${value^}
 	echo $value
 }
+
+#if [ $productFlavour = 'null' ]; then
+#./gradlew "assemble"`capitalize $buildType` --stacktrace
+#else
 ./gradlew "assemble"`capitalize $productFlavour``capitalize $buildType` --stacktrace
 
 #if [ $buildType = 'debug' ]; then
