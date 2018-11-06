@@ -1,10 +1,16 @@
 #!/bin/bash
 
 # input params
-productFlavour=$1
-versionCode=$2
-versionName=$3
-buildType=$4
+#productFlavour=$1
+#versionCode=$2
+#versionName=$3
+#buildType=$4
+
+productFlavour="qa"
+versionCode="2"
+versionName="2.0"
+buildType="release"
+
 #storePass=$6
 #keyAlias=$7
 #keyPass=$8
@@ -51,9 +57,9 @@ capitalize()
 }
 
 #if [ $productFlavour = 'null' ]; then
-#./gradlew "assemble"`capitalize $buildType` --stacktrace
+./gradlew "assemble"`capitalize $buildType` --stacktrace
 #else
-./gradlew "assemble"`capitalize $productFlavour``capitalize $buildType` --stacktrace
+#./gradlew "assemble"`capitalize $productFlavour``capitalize $buildType` --stacktrace
 
 #if [ $buildType = 'debug' ]; then
 #	./gradlew assembleDebug --stacktrace
